@@ -8,7 +8,7 @@ Widget customTextField({String? title,String? hint,controller,}){
       5.heightBox,
       TextFormField(
         decoration: InputDecoration(
-          hintStyle: TextStyle(
+          hintStyle: const TextStyle(
             fontFamily: semibold,
             color: textfieldGrey,
           ),
@@ -17,7 +17,7 @@ Widget customTextField({String? title,String? hint,controller,}){
         fillColor: lightGrey,
         filled: true,
         border: InputBorder.none,
-        focusedBorder: OutlineInputBorder(
+        focusedBorder: const OutlineInputBorder(
           borderSide: BorderSide(color: redColor),
         ),
         
