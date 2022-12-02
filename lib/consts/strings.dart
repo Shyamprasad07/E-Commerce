@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 
 const appname = "Shimla Enterprises";
 const appversion = "Version 1.0.0";
@@ -20,3 +19,5 @@ const termAndCond = " Terms and Condition ";
 const alredyHaveAccount ="Already have an account?";
 // home Strings
 const home = "Home",categories = "Categories",cart = "Cart", account = "Account";
+//home Screen Strings
+const searchanything = "Search anything...",todayDeal = "Today's Deal",flashsale = "Flash Sale",topSellers = "Top Sellers",brand ="Brand",topCategories = "Top Categories",featuredCategories ="Featured Categories";

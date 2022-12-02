@@ -1,4 +1,4 @@
-import 'package:emart_app/auth_screen/login_screen.dart';
+import 'package:emart_app/views/auth_screen/login_screen.dart';
 import 'package:emart_app/consts/consts.dart';
 import 'package:emart_app/widgets_common/applogo_widget.dart';
 import 'package:get/get.dart';
