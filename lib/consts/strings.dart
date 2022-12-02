@@ -1,3 +1,5 @@
+import 'package:flutter/foundation.dart';
+
 const appname = "Shimla Enterprises";
 const appversion = "Version 1.0.0";
 const credits = "@Shyam Devs";
@@ -16,3 +18,5 @@ const loginWith = "Log in with";
 const privacyPolicy = " Privacy Policy ";
 const termAndCond = " Terms and Condition ";
 const alredyHaveAccount ="Already have an account?";
+// home Strings
+const home = "Home",categories = "Categories",cart = "Cart", account = "Account";
