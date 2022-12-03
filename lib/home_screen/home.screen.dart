@@ -131,7 +131,7 @@ class HomeScreen extends StatelessWidget {
                                   Image.asset(imgP1,width:150, fit: BoxFit.cover,),10.heightBox,"lapto 4Gb/64Gb".text.fontFamily(semibold).color(darkFontGrey).make(),
                                   "\$600".text.color(redColor).fontFamily(bold).size(16).make()
                                 ],
-                              ).box.white.margin(EdgeInsets.symmetric(horizontal: 4)).roundedSM.padding(const EdgeInsets.all(8)).make()),
+                              ).box.white.margin(const EdgeInsets.symmetric(horizontal: 4)).roundedSM.padding(const EdgeInsets.all(8)).make()),
                               
                             ),
                           )
@@ -164,14 +164,14 @@ class HomeScreen extends StatelessWidget {
                           physics: const NeverScrollableScrollPhysics(),
                           shrinkWrap: true,
                           itemCount: 6,
-                          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2, mainAxisSpacing: 8 ,crossAxisSpacing: 8,mainAxisExtent: 300), itemBuilder: (context, index){
+                          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2, mainAxisSpacing: 8 ,crossAxisSpacing: 8,mainAxisExtent: 300), itemBuilder: (context, index){
                            return Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Image.asset(imgP5,height: 200,width:200, fit: BoxFit.cover,),const Spacer(),"lapto 4Gb/64Gb".text.fontFamily(semibold).color(darkFontGrey).make(),
                                   "\$600".text.color(redColor).fontFamily(bold).size(16).make()
                                 ],
-                              ).box.white.margin(EdgeInsets.symmetric(horizontal: 4)).roundedSM.padding(const EdgeInsets.all(12)).make();
+                              ).box.white.margin(const EdgeInsets.symmetric(horizontal: 4)).roundedSM.padding(const EdgeInsets.all(12)).make();
                    })   
                 
                 ],
