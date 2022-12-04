@@ -122,6 +122,8 @@ class HomeScreen extends StatelessWidget {
                         children: [
                           featuredProduct.text.white.fontFamily(bold).size(18).make(),
                           10.heightBox,
+
+                          // copied widget from home Screen freatured products in products you may like also used*
                           SingleChildScrollView(
                             scrollDirection: Axis.horizontal,
                             child: Row(
@@ -134,7 +136,7 @@ class HomeScreen extends StatelessWidget {
                               ).box.white.margin(const EdgeInsets.symmetric(horizontal: 4)).roundedSM.padding(const EdgeInsets.all(8)).make()),
                               
                             ),
-                          )
+                          ),
                         
                         ],
                       ),

@@ -38,11 +38,18 @@ const searchanything = "Search anything...",
     featuredCategories = "Featured Categories";
 // categary strings
 const womenClothing = "Women Clothing",
-menClothingFashion = "Men Clothing & Fashion",
-compAccess = "Computer & Accessories",
-automobile = "Automobile",
-kidstoys = "kids & Toys" ,
-sports = "Sports" ,
-jewelery = "Jewelery",
-cellphone = "Cellphone & Tab",
-furniture = "Furniture";
+    menClothingFashion = "Men Clothing & Fashion",
+    compAccess = "Computer & Accessories",
+    automobile = "Automobile",
+    kidstoys = "kids & Toys",
+    sports = "Sports",
+    jewelery = "Jewelery",
+    cellphone = "Cellphone & Tab",
+    furniture = "Furniture";
+// item deatails string
+const video = "video",
+    reviews = "Reviews",
+    sellerpolicy = "Seller Policy",
+    returnpolity = "Return Policy",
+    supportPolicy = "Support Policy",
+    productsyoumaylike = "Products you may also like";
