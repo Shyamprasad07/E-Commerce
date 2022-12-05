@@ -14,6 +14,8 @@ const signup = "Sign Up";
 const creatNewAccount = "or, create a new account";
 const loginWith = "Log in with";
 const privacyPolicy = " Privacy Policy ";
+const loggedin = "Login in successfuly";
+const loggedout = "Login out successfuly";
 const termAndCond = " Terms and Condition ";
 const alredyHaveAccount = "Already have an account?";
 // home Strings

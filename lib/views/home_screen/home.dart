@@ -1,6 +1,6 @@
 import 'package:emart_app/consts/consts.dart';
 import 'package:emart_app/controllers/home_controller.dart';
-import 'package:emart_app/home_screen/home.screen.dart';
+import 'package:emart_app/views/home_screen/home.screen.dart';
 import 'package:emart_app/views/cart_screen/cart_screen.dart';
 import 'package:emart_app/views/catagory_screen/category_screen.dart';
 import 'package:emart_app/views/profile_screen/profile_screen.dart';

@@ -1,7 +1,8 @@
+import 'package:emart_app/controllers/auth_controller.dart';
 import 'package:emart_app/views/auth_screen/singup_screen.dart';
 import 'package:emart_app/consts/consts.dart';
 import 'package:emart_app/consts/lists.dart';
-import 'package:emart_app/home_screen/home.dart';
+import 'package:emart_app/views/home_screen/home.dart';
 import 'package:emart_app/widgets_common/applogo_widget.dart';
 import 'package:emart_app/widgets_common/bg_widget.dart';
 import 'package:emart_app/widgets_common/custum_textfield.dart';
@@ -13,6 +14,7 @@ class LoginScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var controller = Get.put(AuthController());
     return bgWidget(
         child: Scaffold(
       resizeToAvoidBottomInset: false,
@@ -26,8 +28,8 @@ class LoginScreen extends StatelessWidget {
             15.heightBox,
             Column(
               children: [
-                customTextField(hint: emailHint, title: email),
-                customTextField(hint: passwordHint, title: password),
+                customTextField(hint: emailHint, title: email,isPass: false,controller: controller.emailController),
+                customTextField(hint: passwordHint, title: password,isPass: true,controller: controller.passwordController),
                 Align(
                     alignment: Alignment.centerRight,
                     child: TextButton(
@@ -38,8 +40,13 @@ class LoginScreen extends StatelessWidget {
                     color: redColor,
                     title: login,
                     textColor: whiteColor,
-                    onPress: () {
-                      Get.to(() => const Home()); // navigation on home screen
+                    onPress: () async{
+                      await controller.loginMethod(context: context).then((value) {
+                        if (value != null) {
+                          VxToast.show(context, msg: loggedin);
+                          Get.offAll(()=> const Home());
+                        }
+                      });
                     }).box.width(context.screenWidth - 50).make(),
                 5.heightBox,
                 creatNewAccount.text.color(fontGrey).make(),
