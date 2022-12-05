@@ -21,3 +21,6 @@ const categoryImages = [
   imgS1,imgFc1,imgFc2,imgFc3,imgFc4,imgFc5,imgS11,imgFc6,imgFc9,
 ];
 const itemDetailButtonsList =[video,reviews,privacyPolicy,returnpolity,supportPolicy,];
+
+const profileButtonsList = [orders,wishlist,messagse];
+const profileButtonsIcon = [icOrder,icOrder,icMessages];

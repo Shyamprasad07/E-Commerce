@@ -53,3 +53,7 @@ const video = "video",
     returnpolity = "Return Policy",
     supportPolicy = "Support Policy",
     productsyoumaylike = "Products you may also like";
+
+    // profile page  string
+    const logout = "Log out";
+    const wishlist = "My Wishlist",orders = "My orders", messagse = "Messages";
