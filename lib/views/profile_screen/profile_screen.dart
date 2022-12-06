@@ -1,7 +1,9 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:emart_app/consts/consts.dart';
 import 'package:emart_app/consts/lists.dart';
 import 'package:emart_app/controllers/auth_controller.dart';
 import 'package:emart_app/controllers/profile_controller.dart';
+import 'package:emart_app/services/firestore_services.dart';
 import 'package:emart_app/views/auth_screen/login_screen.dart';
 import 'package:emart_app/views/profile_screen/components/details_card.dart';
 import 'package:emart_app/views/profile_screen/components/edit_profile_screen.dart';
@@ -16,7 +18,15 @@ class ProfileScreen extends StatelessWidget {
     var controller = Get.put(ProfileController());
     return bgWidget(
         child: Scaffold(
-      body: SafeArea(
+          body: StreamBuilder(stream: FirestoreServices.getUser(currentUser!.uid),
+          builder: (BuildContext context,AsyncSnapshot <QuerySnapshot> snapshot) {
+           
+           if (!snapshot.hasData) {
+             return const Center(child: CircularProgressIndicator(valueColor: AlwaysStoppedAnimation(redColor),) ,);
+           }
+           else{
+            //var data = snapshot.data!.docs[0];
+            return SafeArea(
           child: Column(
             children: [
               // edit profile button
@@ -85,7 +95,13 @@ class ProfileScreen extends StatelessWidget {
               ).box.white.rounded.margin(const EdgeInsets.all(12)).padding(const EdgeInsets.symmetric(horizontal: 16)).shadowSm.make().box.color(redColor).make(),
               
             ],
-          )),
+          ));
+           }
+
+          
+          },
+          ),
+      
     ));
   }
 }

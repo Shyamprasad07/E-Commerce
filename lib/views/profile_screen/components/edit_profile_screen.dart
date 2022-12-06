@@ -20,14 +20,14 @@ class EditProfileScreen extends StatelessWidget {
           ()=> Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              controller.profileImgPath.isEmpty ?Image.asset(
+              controller.profileImgPath.isEmpty ? Image.asset(
                       imgProfile2,
                       width: 100,
                       fit: BoxFit.cover,
                     ).box.roundedFull.clip(Clip.antiAlias).make() : Image.file(File(controller.profileImgPath.value),
                     width: 100,
                     fit: BoxFit.cover,
-                    ),
+                    ).box.roundedFull.clip(Clip.antiAlias).make(),
                     10.heightBox,
                     ourButton(
                       color: redColor,onPress: (){

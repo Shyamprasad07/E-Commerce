@@ -40,7 +40,10 @@ class AuthController extends GetxController{
       'password':password,
        'email': email,
        'imageUrl':'',
-       'id': currentUser!.uid //add using clound firestore after login page
+       'id': currentUser!.uid ,//add using clound firestore after login page.
+       'cart_count': "00",
+       'whishlist_count': "00",
+       'order_count': "00",
     });
   }
   //signout method
