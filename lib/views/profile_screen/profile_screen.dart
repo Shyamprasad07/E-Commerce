@@ -19,13 +19,13 @@ class ProfileScreen extends StatelessWidget {
     return bgWidget(
         child: Scaffold(
           body: StreamBuilder(stream: FirestoreServices.getUser(currentUser!.uid),
-          builder: (BuildContext context,AsyncSnapshot <QuerySnapshot> snapshot) {
+          builder: (BuildContext context,  AsyncSnapshot<QuerySnapshot>snapshot) {
            
            if (!snapshot.hasData) {
              return const Center(child: CircularProgressIndicator(valueColor: AlwaysStoppedAnimation(redColor),) ,);
            }
            else{
-            //var data = snapshot.data!.docs[0];
+            var data = snapshot.data!.docs[0];
             return SafeArea(
           child: Column(
             children: [
@@ -34,47 +34,50 @@ class ProfileScreen extends StatelessWidget {
              const Align(
                 alignment: Alignment.topRight,
                 child:  Icon(Icons.edit,color: whiteColor,)).onTap(() {
-                  Get.to(()=> const EditProfileScreen());
+                  Get.to(()=> EditProfileScreen(data: data,));
                  }),
 
               // Users details section
-              Row(
-                children: [
-                  Image.asset(
-                    imgProfile2,
-                    width: 100,
-                    fit: BoxFit.cover,
-                  ).box.roundedFull.clip(Clip.antiAlias).make(),
-                  10.widthBox,
-                  Expanded(
-                      child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      "Dummy User".text.fontFamily(semibold).white.make(),
-                      5.heightBox,
-                      "Custumer@gmail.com".text.white.make(),
-                    ],
-                  )),
-                  OutlinedButton(
-                    style: OutlinedButton.styleFrom(
-                      side: const BorderSide(
-                        color: whiteColor,
-                      )
-                    ),
-                      onPressed: () async{
-                        await Get.put(AuthController()).signoutMethod(context);//firebase logout
-                        Get.offAll(()=> const LoginScreen());
-                      },
-                      child: logout.text.fontFamily(semibold).white.make()),
-                ],
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                child: Row(
+                  children: [
+                    Image.asset(
+                      imgProfile2,
+                      width: 100,
+                      fit: BoxFit.cover,
+                    ).box.roundedFull.clip(Clip.antiAlias).make(),
+                    10.widthBox,
+                    Expanded(
+                        child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        "${data['name']}".text.fontFamily(semibold).white.make(),
+                        5.heightBox,
+                         "${data['email']}".text.white.make(),
+                      ],
+                    )),
+                    OutlinedButton(
+                      style: OutlinedButton.styleFrom(
+                        side: const BorderSide(
+                          color: whiteColor,
+                        )
+                      ),
+                        onPressed: () async{
+                          await Get.put(AuthController()).signoutMethod(context);//firebase logout
+                          Get.offAll(()=> const LoginScreen());
+                        },
+                        child: logout.text.fontFamily(semibold).white.make()),
+                  ],
+                ),
               ),
               20.heightBox,
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  detailsCard( count: "00",title: "in your cart",width: context.screenWidth / 3.4),
-                  detailsCard( count: "32",title: "in your wishlist",width: context.screenWidth / 3.4),
-                  detailsCard( count: "675",title: " your order",width: context.screenWidth / 3.4),
+                  detailsCard( count: data['cart_count'],title: "in your cart",width: context.screenWidth / 3.4),
+                  detailsCard( count:  data['wishlist_count'],title: "in your wishlist",width: context.screenWidth / 3.4),
+                  detailsCard( count:  data['order_count'],title: " your order",width: context.screenWidth / 3.4),
                 ],
               ),
               // button section

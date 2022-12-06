@@ -1,18 +1,26 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'dart:io';
+
+import 'package:get/get.dart';
 
 import 'package:emart_app/consts/consts.dart';
 import 'package:emart_app/controllers/profile_controller.dart';
 import 'package:emart_app/widgets_common/bg_widget.dart';
 import 'package:emart_app/widgets_common/custum_textfield.dart';
 import 'package:emart_app/widgets_common/our_button.dart';
-import 'package:get/get.dart';
 
 class EditProfileScreen extends StatelessWidget {
-  const EditProfileScreen({super.key});
+  final dynamic data;
+  const EditProfileScreen({
+    Key? key,
+    required this.data,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
      var controller = Get.find<ProfileController>();
+     controller.nameController.text = data['name'];
+     controller.passController.text = data['password'];
     return bgWidget(
       child: Scaffold(
         appBar: AppBar(),
@@ -37,9 +45,11 @@ class EditProfileScreen extends StatelessWidget {
                       const Divider(),
                       20.heightBox,
                       customTextField(
+                        controller: controller.nameController,
                         hint: nameHint, title: name,isPass: false,
                       ),
                       customTextField(
+                        controller: controller.passController,
                         hint: passwordHint, title: password,isPass: true,
                       ),
                       20.heightBox,

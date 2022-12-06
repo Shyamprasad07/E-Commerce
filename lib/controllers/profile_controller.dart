@@ -5,6 +5,10 @@ import 'package:image_picker/image_picker.dart';
 
 class ProfileController extends GetxController{
   var profileImgPath = "".obs;
+
+  // textField
+  var nameController = TextEditingController();
+  var passController = TextEditingController();
   changeImage(context) async{
     try {
       final img = await ImagePicker().pickImage(source:ImageSource.gallery,imageQuality: 70);
