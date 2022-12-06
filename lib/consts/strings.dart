@@ -59,3 +59,4 @@ const video = "video",
     // profile page  string
     const logout = "Log out";
     const wishlist = "My Wishlist",orders = "My orders", messagse = "Messages";
+    const oldpass = "old password" ,newpass = "New PassWord";
