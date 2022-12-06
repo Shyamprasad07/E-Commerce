@@ -1,4 +1,5 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:emart_app/controllers/product_controller.dart';
 import 'package:emart_app/views/catagory_screen/item_details.dart';
 
 import 'package:emart_app/consts/consts.dart';
@@ -15,6 +16,8 @@ class CategoryDetails extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var controller = Get.find<ProductController>();
+
     return bgWidget(
         child: Scaffold(
       appBar: AppBar(
@@ -23,14 +26,15 @@ class CategoryDetails extends StatelessWidget {
       body: Container(
         padding: const EdgeInsets.all(12),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SingleChildScrollView(
               physics: const BouncingScrollPhysics(),
               scrollDirection: Axis.horizontal,
               child: Row(
                 children: List.generate(
-                    6,
-                    (index) => "Baby Clothing"
+                    controller.subcat.length,
+                    (index) => "${controller.subcat[index]}"
                         .text
                         .size(12)
                         .fontFamily(semibold)
